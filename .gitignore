@@ -15,3 +15,5 @@
 # vendor/
 
 HarborMaster
+registry_username
+registry_password
