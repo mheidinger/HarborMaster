@@ -1,6 +1,7 @@
 package server
 
 import (
+	"HarborMaster/managers"
 	"net/http"
 	"strings"
 
@@ -22,7 +23,17 @@ func (s *Server) buildUIRoutes() {
 
 func (s *Server) dashboardUIHandler() gin.HandlerFunc {
 	return func(c *gin.Context) {
-		c.HTML(http.StatusOK, "dashboard", gin.H{})
+		info, err := managers.GetRegistryManager().GetRegistryInfo()
+		if err != nil {
+			c.Redirect(http.StatusFound, s.getRedirectURL(*c.Request.URL, "/", &errorInfo, nil))
+			return
+		}
+
+		c.HTML(http.StatusOK, "dashboard", gin.H{
+			"error":   c.Query(errorURLParam),
+			"success": c.Query(successURLParam),
+			"info":    info,
+		})
 	}
 }
 

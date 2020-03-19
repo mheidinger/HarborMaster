@@ -2,6 +2,10 @@
 
 {{define "body"}}
 <div>
-	<h1 class="header center deep-orange-text">Dashboard</h1>
+	<h3>{{.info.URL}}</h3>
+
+	{{range .info.RepositoryInfos}}
+		<p>{{.Name}} : {{.Tags}}</p>
+	{{end}}
 </div>
 {{end}}

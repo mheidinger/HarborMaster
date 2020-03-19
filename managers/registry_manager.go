@@ -1,6 +1,8 @@
-package manager
+package managers
 
 import (
+	"HarborMaster/models"
+
 	"github.com/heroku/docker-registry-client/registry"
 	log "github.com/sirupsen/logrus"
 )
@@ -37,6 +39,35 @@ func GetRegistryManager() *RegistryManager {
 	return registryManager
 }
 
-func (mgr *RegistryManager) GetRepositories() ([]string, error) {
-	return mgr.hub.Repositories()
+func (mgr *RegistryManager) GetRegistryInfo() (info *models.RegistryInfo, err error) {
+	repos, err := mgr.hub.Repositories()
+	if err != nil {
+		log.WithError(err).Error("Failed to get repositories")
+		return
+	}
+
+	info = &models.RegistryInfo{
+		URL:             mgr.hub.URL,
+		RepositoryInfos: make([]*models.RepositoryInfo, len(repos)),
+	}
+
+	for it, repo := range repos {
+		tags, err := mgr.hub.Tags(repo)
+		if err != nil {
+			log.WithField("repository", repo).WithError(err).Error("Failed to get tags for repo")
+			continue
+		}
+
+		info.RepositoryInfos[it] = &models.RepositoryInfo{
+			Name: repo,
+			Tags: tags,
+		}
+	}
+
+	return
+}
+
+func (mgr *RegistryManager) getRepositoryTags(repository string) (tags []string, err error) {
+
+	return
 }

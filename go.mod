@@ -3,6 +3,7 @@ module HarborMaster
 go 1.14
 
 require (
+	github.com/containous/traefik v1.7.22
 	github.com/gin-contrib/multitemplate v0.0.0-20200226145339-3e397ee01bc6
 	github.com/gin-gonic/gin v1.5.0
 	github.com/heroku/docker-registry-client v0.0.0-20190909225348-afc9e1acc3d5
