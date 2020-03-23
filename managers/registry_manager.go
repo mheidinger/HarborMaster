@@ -2,10 +2,13 @@ package managers
 
 import (
 	"HarborMaster/models"
+	"errors"
 
 	"github.com/heroku/docker-registry-client/registry"
 	log "github.com/sirupsen/logrus"
 )
+
+const LatestTag = "latest"
 
 type RegistryManager struct {
 	hub  *registry.Registry
@@ -58,6 +61,22 @@ func (mgr *RegistryManager) GetRegistryInfo() (info *models.RegistryInfo, err er
 			continue
 		}
 
+		latestIt := -1
+		for it, tag := range tags {
+			if tag == LatestTag {
+				latestIt = it
+				break
+			}
+		}
+		if latestIt != -1 {
+			newTags := []string{LatestTag}
+			newTags = append(newTags, tags[:latestIt]...)
+			if latestIt != len(tags)-1 {
+				newTags = append(newTags, tags[latestIt+1:]...)
+			}
+			tags = newTags
+		}
+
 		info.RepositoryInfos[it] = &models.RepositoryInfo{
 			Name: repo,
 			Tags: tags,
@@ -67,7 +86,24 @@ func (mgr *RegistryManager) GetRegistryInfo() (info *models.RegistryInfo, err er
 	return
 }
 
-func (mgr *RegistryManager) getRepositoryTags(repository string) (tags []string, err error) {
+func (mgr *RegistryManager) DeleteTag(repository, tag string) (err error) {
+	deleteLog := log.WithFields(log.Fields{"repository": repository, "tag": tag})
 
+	if tag == LatestTag {
+		deleteLog.Info("Can't delete 'latest' tag")
+		return errors.New("Can't delete 'latest' tag")
+	}
+
+	digest, err := mgr.hub.ManifestDigest(repository, tag)
+	if err != nil {
+		deleteLog.WithError(err).Error("Failed to get digest to delete tag")
+		return
+	}
+
+	err = mgr.hub.DeleteManifest(repository, digest)
+	if err != nil {
+		deleteLog.WithError(err).Error("Failed to delete tag with digest")
+		return
+	}
 	return
 }
