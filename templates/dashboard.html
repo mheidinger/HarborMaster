@@ -2,10 +2,47 @@
 
 {{define "body"}}
 <div>
-	<h3>{{.info.URL}}</h3>
+	<h1 class="header center deep-orange-text">Dashboard</h1>
 
-	{{range .info.RepositoryInfos}}
-		<p>{{.Name}} : {{.Tags}}</p>
-	{{end}}
+	<div>
+		<h4 class="deep-orange-text">Connected Registry</h4>
+		<table class="responsive-table striped">
+			<tbody>
+				<tr>
+					<td>URL</td>
+					<td><a href="{{.info.URL}}">{{.info.URL}}</a></td>
+				</tr>
+				<tr>
+					<td>Count of Images</td>
+					<td>{{len .info.RepositoryInfos}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<div>
+		<h4 class="deep-orange-text">Images</h4>
+		<ul class="collapsible">
+			{{range .info.RepositoryInfos}}
+				<li>
+					<div class="collapsible-header"><i class="material-icons">storage</i>{{.Name}}</div>
+					<div class="collapsible-body">
+						<table class="responsive-table striped">
+							<thead>
+								<th>Tag</th>
+							</thead>
+							<tbody>
+								{{range .Tags}}
+									<tr><td>{{.}}</td></tr>
+								{{end}}
+							</tbody>
+						</table>
+					</div>
+				</li>
+			{{end}}
+		</ul>
+	</div>
+
+	<script type="text/javascript" src="/static/js/dashboard.js"></script>
 </div>
 {{end}}
