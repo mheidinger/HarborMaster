@@ -24,19 +24,29 @@
 		<h4 class="deep-orange-text">Images</h4>
 		<ul class="collapsible">
 			{{range .info.RepositoryInfos}}
-				<li>
+			{{$repo := .Name}}
+				<li class="image-li">
 					<div class="collapsible-header"><i class="material-icons">storage</i>{{.Name}}</div>
 					<div class="collapsible-body">
-						<table class="responsive-table striped">
-							<thead>
-								<th>Tag</th>
-							</thead>
-							<tbody>
-								{{range .Tags}}
-									<tr><td>{{.}}</td></tr>
+						<h5 class="deep-orange-text">Tags</h5>
+						<div>
+							{{range $it, $tag := .Tags}}
+								{{if mod $it 4 0}}
+								<div class="row tagrow">
 								{{end}}
-							</tbody>
-						</table>
+									<div class="col s3 tagbox">
+										<p>{{$tag}}</p>
+										{{if ne $tag "latest"}}
+											<p><a class="tagDeleteButton" href="#"><i data-reponame="{{$repo}}" data-tagname="{{$tag}}" class="material-icons">delete_forever</i></a></p>
+										{{else}}
+											<p><i data-reponame="{{$repo}}" data-tagname="{{$tag}}" class="material-icons">lock</i></p>
+										{{end}}
+									</div>
+								{{if mod $it 4 3}}
+								</div>
+								{{end}}
+							{{end}}
+						</div>
 					</div>
 				</li>
 			{{end}}

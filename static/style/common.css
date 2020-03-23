@@ -42,3 +42,31 @@ main {
     opacity: 0;
   }
 }
+
+.tagrow {
+  margin-bottom: 1px;
+}
+
+.tagbox {
+  background-color: #bbbbbb;
+  border: 1px white solid;
+  display: flex;
+  justify-content: space-between;
+}
+
+.tagbox > p {
+  margin-top: 5px;
+  margin-bottom: 0px;
+}
+
+.tagbox > p > a {
+  color: rgb(148, 67, 0);
+}
+
+.tagbox > i {
+  color: black;
+}
+
+.image-li > .collapsible-body {
+  padding-top: 10px;
+}

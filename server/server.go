@@ -16,12 +16,14 @@ var (
 )
 
 type Server struct {
-	Router *gin.Engine
+	Router       *gin.Engine
+	neededHeader string
 }
 
-func NewServer() *Server {
+func NewServer(neededHeader string) *Server {
 	s := &Server{
-		Router: gin.New(),
+		Router:       gin.New(),
+		neededHeader: neededHeader,
 	}
 	s.parseTemplates()
 	s.buildRoutes()
@@ -30,6 +32,9 @@ func NewServer() *Server {
 
 func (s *Server) buildRoutes() {
 	s.Router.Use(gin.Recovery())
+	if s.neededHeader != "" {
+		s.Router.Use(NeededHeaderMiddleware(s.neededHeader))
+	}
 
 	s.buildUIRoutes()
 	s.buildAPIRoutes()

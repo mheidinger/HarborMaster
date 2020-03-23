@@ -2,6 +2,7 @@ package server
 
 import (
 	"HarborMaster/managers"
+	"html/template"
 	"net/http"
 	"strings"
 
@@ -10,10 +11,17 @@ import (
 )
 
 func (s *Server) parseTemplates() {
+	funcMap := template.FuncMap{"mod": s.templateMod}
+
 	r := multitemplate.NewRenderer()
-	r.AddFromFiles("dashboard", "templates/base.html", "templates/dashboard.html")
+	r.AddFromFilesFuncs("dashboard", funcMap, "templates/base.html", "templates/dashboard.html")
 	r.AddFromFiles("notfound", "templates/base.html", "templates/notfound.html")
+	r.AddFromFiles("unauthorized", "templates/base.html", "templates/unauthorized.html")
 	s.Router.HTMLRender = r
+}
+
+func (s *Server) templateMod(x, y, z int) bool {
+	return x%y == z
 }
 
 func (s *Server) buildUIRoutes() {
