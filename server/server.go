@@ -4,6 +4,8 @@ import (
 	"net/url"
 
 	"github.com/gin-gonic/gin"
+	log "github.com/sirupsen/logrus"
+	ginlogrus "github.com/toorop/gin-logrus"
 )
 
 const (
@@ -31,7 +33,7 @@ func NewServer(neededHeader string) *Server {
 }
 
 func (s *Server) buildRoutes() {
-	s.Router.Use(gin.Recovery())
+	s.Router.Use(ginlogrus.Logger(log.New()), gin.Recovery())
 	if s.neededHeader != "" {
 		s.Router.Use(NeededHeaderMiddleware(s.neededHeader))
 	}
