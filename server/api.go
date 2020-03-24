@@ -22,6 +22,6 @@ func (s *Server) onDeleteTagHandler() gin.HandlerFunc {
 			c.JSON(http.StatusInternalServerError, gin.H{"error": "Repository and tag not found or deletion disabled!"})
 			return
 		}
-		c.Status(http.StatusOK)
+		c.JSON(http.StatusOK, gin.H{"ok": true})
 	}
 }
