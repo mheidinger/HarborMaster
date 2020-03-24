@@ -25,7 +25,7 @@
 		<ul class="collapsible">
 			{{range .info.RepositoryInfos}}
 			{{$repo := .Name}}
-				<li class="image-li">
+				<li class="image-li" id="repo-{{.Name}}">
 					<div class="collapsible-header"><i class="material-icons">storage</i>{{.Name}}</div>
 					<div class="collapsible-body">
 						<h5 class="deep-orange-text">Tags</h5>
