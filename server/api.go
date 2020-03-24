@@ -1,6 +1,7 @@
 package server
 
 import (
+	"HarborMaster/managers"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -13,6 +14,14 @@ func (s *Server) buildAPIRoutes() {
 
 func (s *Server) onDeleteTagHandler() gin.HandlerFunc {
 	return func(c *gin.Context) {
-		c.JSON(http.StatusInternalServerError, gin.H{"error": "Error"})
+		repo := c.Param("repo")
+		tag := c.Param("tag")
+
+		err := managers.GetRegistryManager().DeleteTag(repo, tag)
+		if err != nil {
+			c.JSON(http.StatusInternalServerError, gin.H{"error": "Repository and tag not found or deletion disabled!"})
+			return
+		}
+		c.Status(http.StatusOK)
 	}
 }
