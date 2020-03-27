@@ -1,0 +1,37 @@
+kind: pipeline
+name: default
+
+steps:
+- name: push-registry
+  image: plugins/docker
+  settings:
+    repo: registry.max-heidinger.de/harbor-master
+    registry: registry.max-heidinger.de
+    tags:
+      - latest
+      - ci-${DRONE_BUILD_NUMBER}
+    username:
+      from_secret: tac_username
+    password:
+      from_secret: tac_password
+  when:
+    branch:
+    - master
+    event:
+      exclude:
+      - pull_request
+
+- name: update-deployment
+  image: plugins/webhook
+  settings:
+    urls: https://portainer.max-heidinger.de/api/webhooks/4e664f2f-5a9d-4cdc-a421-9e4b1646e4b3
+    username:
+      from_secret: tac_username
+    password:
+      from_secret: tac_password
+  when:
+    branch:
+    - master
+    event:
+      exclude:
+      - pull_request

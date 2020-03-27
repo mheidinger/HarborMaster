@@ -18,4 +18,4 @@ COPY templates ./templates
 ENV GIN_MODE release
 
 EXPOSE 4181
-CMD ["./HarborMaster"]
+ENTRYPOINT ["./HarborMaster"]
