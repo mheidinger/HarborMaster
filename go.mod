@@ -7,5 +7,5 @@ require (
 	github.com/gin-gonic/gin v1.7.7
 	github.com/mheidinger/docker-registry-client v0.0.0-20200324094445-eadc2a2b3278
 	github.com/sirupsen/logrus v1.4.2
-	github.com/toorop/gin-logrus v0.0.0-20190701131413-6c374ad36b67
+	github.com/toorop/gin-logrus v0.0.0-20210225092905-2c785434f26f
 )
