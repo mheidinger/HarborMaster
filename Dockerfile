@@ -8,7 +8,7 @@ RUN go mod download
 COPY . .
 RUN go build -ldflags "-linkmode external -extldflags -static" -o HarborMaster ./cmd/HarborMaster
 
-FROM alpine:3.11
+FROM alpine:3.16
 
 WORKDIR /app
 COPY --from=builder /build/HarborMaster .
