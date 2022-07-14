@@ -17,6 +17,8 @@ github.com/gin-contrib/multitemplate v0.0.0-20220524002413-658d6de061b5 h1:3yIrI
 github.com/gin-contrib/multitemplate v0.0.0-20220524002413-658d6de061b5/go.mod h1:baoAAA5gIpV53skt3rdmRTq8iNxbl8dLk7v91jJR1iU=
 github.com/gin-contrib/multitemplate v0.0.0-20220606235416-8e12065b5cb8 h1:aMshFEINkG8A2NprpXVnoDgJWs0B43GD6gtZnfsE+/M=
 github.com/gin-contrib/multitemplate v0.0.0-20220606235416-8e12065b5cb8/go.mod h1:+p8BDU1zMNBRv3q8DAGAOYkss1Bc4LyUA6X+lMMC8gM=
+github.com/gin-contrib/multitemplate v0.0.0-20220705015713-e21a0ba39de3 h1:DuxfK5dG4dCWzKS4Fy3K/Ph/GFgaDcBj5kZkCZCx/IE=
+github.com/gin-contrib/multitemplate v0.0.0-20220705015713-e21a0ba39de3/go.mod h1:XLLtIXoP9+9zGcEDc7gAGV3AksGPO+vzv4kXHMJSdU0=
 github.com/gin-contrib/sse v0.1.0 h1:Y/yl/+YNO8GZSjAhjMsSuLt29uWRFHdHYUb5lYOV9qE=
 github.com/gin-contrib/sse v0.1.0/go.mod h1:RHrZQHXnP2xjPF+u1gW/2HnVO7nvIa9PG3Gm+fLHvGI=
 github.com/gin-gonic/gin v1.5.0/go.mod h1:Nd6IXA8m5kNZdNEHMBd93KT+mdY3+bewLgRvmCsR2Do=
@@ -181,6 +183,7 @@ github.com/spf13/pflag v1.0.1/go.mod h1:DYY7MBk1bdzusC3SYhjObp+wFpr4gzcvqqNjLnIn
 github.com/spf13/viper v1.0.2/go.mod h1:A8kyI5cUJhb8N+3pkfONlcEcZbueH6nhAm0Fq7SrnBM=
 github.com/stretchr/objx v0.1.0/go.mod h1:HFkY916IF+rwdDfMAkV7OtwuqBVzrE8GR6GFx+wExME=
 github.com/stretchr/objx v0.1.1/go.mod h1:HFkY916IF+rwdDfMAkV7OtwuqBVzrE8GR6GFx+wExME=
+github.com/stretchr/objx v0.4.0/go.mod h1:YvHI0jy2hoMjB+UWwv71VJQ9isScKT/TqJzVSSt89Yw=
 github.com/stretchr/testify v1.2.2/go.mod h1:a8OnRcib4nhh0OaRAV+Yts87kKdq0PP7pXfy6kDkUVs=
 github.com/stretchr/testify v1.3.0/go.mod h1:M5WIy9Dh21IEIfnGCwXGc5bZfKNJtfHm1UVUgZn+9EI=
 github.com/stretchr/testify v1.4.0 h1:2E4SXV/wtOkTonXsotYi4li6zVWxYlZuYNCXe9XRJyk=
@@ -189,6 +192,7 @@ github.com/stretchr/testify v1.6.1/go.mod h1:6Fq8oRcR53rry900zMqJjRRixrwX3KX962/
 github.com/stretchr/testify v1.7.0/go.mod h1:6Fq8oRcR53rry900zMqJjRRixrwX3KX962/h/Wwjteg=
 github.com/stretchr/testify v1.7.1/go.mod h1:6Fq8oRcR53rry900zMqJjRRixrwX3KX962/h/Wwjteg=
 github.com/stretchr/testify v1.7.2/go.mod h1:R6va5+xMeoiuVRoj+gSkQ7d3FALtqAAGI1FQKckRals=
+github.com/stretchr/testify v1.8.0/go.mod h1:yNjHg4UonilssWZ8iaSj1OCr/vHnekPRkoO+kdMU+MU=
 github.com/timakin/bodyclose v0.0.0-20190721030226-87058b9bfcec/go.mod h1:Qimiffbc6q9tBWlVV6x0P9sat/ao1xEkREYPPj9hphk=
 github.com/toorop/gin-logrus v0.0.0-20190701131413-6c374ad36b67 h1:xFHNEBxlzcenaJDVCVOlCuuu8fwIVTdn3hEmcXhzvg0=
 github.com/toorop/gin-logrus v0.0.0-20190701131413-6c374ad36b67/go.mod h1:X3Dd1SB8Gt1V968NTzpKFjMM6O8ccta2NPC6MprOxZQ=
