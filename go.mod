@@ -3,7 +3,7 @@ module HarborMaster
 go 1.19
 
 require (
-	github.com/gin-contrib/multitemplate v0.0.0-20220829131020-8c2a8441bc2b
+	github.com/gin-contrib/multitemplate v0.0.0-20230212012517-45920c92c271
 	github.com/gin-gonic/gin v1.8.1
 	github.com/mheidinger/docker-registry-client v0.0.0-20200324094445-eadc2a2b3278
 	github.com/sirupsen/logrus v1.9.0
