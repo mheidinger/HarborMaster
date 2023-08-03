@@ -12,7 +12,7 @@
 
 ### Docker
 
-Docker images are available on [Docker Hub](https://hub.docker.com/r/mheidinger/harbor-master).
+Docker images are available on [GHCR](https://github.com/users/mheidinger/packages/container/package/harbor-master).
 The usage is described below.
 
 ### Compiling and running locally
