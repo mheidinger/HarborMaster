@@ -2,11 +2,11 @@ kind: pipeline
 name: default
 
 steps:
-- name: push-registry
+- name: push-private-registry
   image: plugins/docker
   settings:
-    repo: registry.max-heidinger.de/harbor-master
-    registry: registry.max-heidinger.de
+    repo: registry-castor.max-heidinger.de/harbor-master
+    registry: registry-castor.max-heidinger.de
     tags:
       - latest
       - ci-${DRONE_BUILD_NUMBER}
@@ -21,10 +21,29 @@ steps:
       exclude:
       - pull_request
 
+- name: push-public-registry
+  image: plugins/docker
+  settings:
+    repo: ghcr.io/mheidinger/harbor-master
+    registry: ghcr.io
+    tags:
+      - latest
+      - ci-${DRONE_BUILD_NUMBER}
+    username:
+      from_secret: github_username
+    password:
+      from_secret: github_password
+  when:
+    branch:
+    - master
+    event:
+      exclude:
+      - pull_request
+
 - name: update-deployment
   image: plugins/webhook
   settings:
-    urls: https://portainer.max-heidinger.de/api/webhooks/4e664f2f-5a9d-4cdc-a421-9e4b1646e4b3
+    urls: https://portainer-castor.max-heidinger.de/api/webhooks/b76f67df-2577-4f6e-b690-b6a73784abd9
     username:
       from_secret: tac_username
     password:
