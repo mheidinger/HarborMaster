@@ -6,7 +6,8 @@ COPY go.mod go.sum ./
 RUN go mod download
 
 COPY . .
-RUN go build -ldflags "-linkmode external -extldflags -static" -o HarborMaster ./cmd/HarborMaster
+ENV CGO_ENABLED=0
+RUN go build -o HarborMaster ./cmd/HarborMaster
 
 FROM alpine:3.18
 

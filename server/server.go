@@ -13,9 +13,7 @@ const (
 	successURLParam = "success"
 )
 
-var (
-	errorInfo = "Failed to get info from registry"
-)
+var errorInfo = "Failed to get info from registry"
 
 type Server struct {
 	Router       *gin.Engine

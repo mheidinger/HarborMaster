@@ -1,70 +1,96 @@
 <!doctype html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <title>HM - {{template "title"}}</title>
- 
-  <link rel="icon" href="/static/images/favicon.ico" type="image/x-icon"/>
-  <link rel="shortcut icon" href="/static/images/favicon.ico" type="image/x-icon"/>
+    <head>
+        <meta charset="utf-8" />
+        <title>HM - {{template "title"}}</title>
 
-  <link type="text/css" rel="stylesheet" href="/static/style/material-icons.css">
-  <link type="text/css" rel="stylesheet" href="/static/materialize/materialize.min.css" media="screen,projection"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <link type="text/css" rel="stylesheet" href="/static/style/common.css">
+        <link
+            rel="icon"
+            href="/static/images/favicon.ico"
+            type="image/x-icon"
+        />
+        <link
+            rel="shortcut icon"
+            href="/static/images/favicon.ico"
+            type="image/x-icon"
+        />
 
-  <script type="text/javascript" src="/static/js/common.js"></script> <!-- Only contains helper functions -->
-</head>
-<body>
-  <header>
-    <nav class="blue-grey lighten-1" role="navigation">
-      <div class="nav-wrapper container">
-        <a href="/" class="brand-logo">
-          <img src="/static/images/logo.png">
-          HarborMaster - {{template "title"}}
-        </a>
-      </div>
-    </nav>
-  </header>
+        <link
+            type="text/css"
+            rel="stylesheet"
+            href="/static/style/material-icons.css"
+        />
+        <link
+            type="text/css"
+            rel="stylesheet"
+            href="/static/materialize/materialize.min.css"
+            media="screen,projection"
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            type="text/css"
+            rel="stylesheet"
+            href="/static/style/common.css"
+        />
 
-  <main>
-    <div class="row">
-      <div class="col s2"></div>
+        <script type="text/javascript" src="/static/js/common.js"></script>
+        <!-- Only contains helper functions -->
+    </head>
+    <body>
+        <header>
+            <nav class="blue-grey lighten-1" role="navigation">
+                <div class="nav-wrapper container">
+                    <a href="/" class="brand-logo">
+                        <img src="/static/images/logo.png" />
+                        HarborMaster - {{template "title"}}
+                    </a>
+                </div>
+            </nav>
+        </header>
 
-      <div class="col s8">
-        {{template "body" .}}
-      </div>
+        <main>
+            <div class="row">
+                <div class="col s2"></div>
 
-      {{if .error}}
-      <div class="col s2">
-        <div class="card red darken-1" id="infoCard">
-          <div class="card-content white-text">
-            <span class="card-title">Error</span>
-            <p>{{.error}}</p>
-          </div>
-        </div>
-      </div>
-      {{end}}
+                <div class="col s8">{{template "body" .}}</div>
 
-      {{if .success}}
-      <div class="col s2">
-        <div class="card green darken-1" id="infoCard">
-          <div class="card-content white-text">
-            <span class="card-title">Success</span>
-            <p>{{.success}}</p>
-          </div>
-        </div>
-      </div>
-      {{end}}
-    </div>
-  </main>
+                {{if .error}}
+                <div class="col s2">
+                    <div class="card red darken-1" id="infoCard">
+                        <div class="card-content white-text">
+                            <span class="card-title">Error</span>
+                            <p>{{.error}}</p>
+                        </div>
+                    </div>
+                </div>
+                {{end}} {{if .success}}
+                <div class="col s2">
+                    <div class="card green darken-1" id="infoCard">
+                        <div class="card-content white-text">
+                            <span class="card-title">Success</span>
+                            <p>{{.success}}</p>
+                        </div>
+                    </div>
+                </div>
+                {{end}}
+            </div>
+        </main>
 
-  <footer class="page-footer deep-orange darken-4">
-    <div class="container">
-      Made by <a class="orange-text text-lighten-3" href="https://max-heidinger.de">Max Heidinger</a>
-    </div>
-  </footer>
+        <footer class="page-footer deep-orange darken-4">
+            <div class="container">
+                Made by
+                <a
+                    class="orange-text text-lighten-3"
+                    href="https://max-heidinger.de"
+                    >Max Heidinger</a
+                >
+            </div>
+        </footer>
 
-  <script src="/static/sweetalert2/sweetalert2.min.js"></script>
-  <script type="text/javascript" src="/static/materialize/materialize.min.js"></script>
-</body>
+        <script src="/static/sweetalert2/sweetalert2.min.js"></script>
+        <script
+            type="text/javascript"
+            src="/static/materialize/materialize.min.js"
+        ></script>
+    </body>
 </html>

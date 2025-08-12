@@ -1,72 +1,77 @@
 body {
-	display: flex;
-	min-height: 100vh;
-	flex-direction: column;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
 }
 
 main {
-	flex: 1 0 auto;
+    flex: 1 0 auto;
 }
 
 .brand-logo img {
-	vertical-align: middle;
-	height: 1.6em;
+    vertical-align: middle;
+    height: 1.6em;
 }
 
 .page-footer {
-	padding-bottom: 1em;
+    padding-bottom: 1em;
 }
 
 #infoCard {
-  -webkit-animation: fadeOut 1.5s forwards;
-  -webkit-animation-iteration-count: 1;
-  -webkit-animation-delay: 5s;
-  animation: fadeOut 1.5s forwards;
-  animation-iteration-count: 1;
-  animation-delay: 5s;
+    -webkit-animation: fadeOut 1.5s forwards;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-delay: 5s;
+    animation: fadeOut 1.5s forwards;
+    animation-iteration-count: 1;
+    animation-delay: 5s;
 }
 
 @-webkit-keyframes fadeOut {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
 }
 @keyframes fadeOut {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
 }
 
 .tagrow {
-  margin-bottom: 1px;
+    margin-bottom: 1px;
 }
 
 .tagbox {
-  background-color: #bbbbbb;
-  border: 1px white solid;
-  display: flex;
-  justify-content: space-between;
+    background-color: #bbbbbb;
+    border: 1px white solid;
+    display: flex;
+    justify-content: space-between;
 }
 
 .tagbox > p {
-  margin-top: 5px;
-  margin-bottom: 0px;
+    margin-top: 5px;
+    margin-bottom: 0px;
+}
+
+.tagbox > .taglabel {
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .tagbox > p > a {
-  color: rgb(148, 67, 0);
+    color: rgb(148, 67, 0);
 }
 
 .tagbox > i {
-  color: black;
+    color: black;
 }
 
 .image-li > .collapsible-body {
-  padding-top: 10px;
+    padding-top: 10px;
 }
