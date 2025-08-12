@@ -2,7 +2,7 @@ name: Build & Push & Deploy
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
 
 jobs:
   push:
@@ -47,15 +47,15 @@ jobs:
             registry-lynx.max-heidinger.de/harbor-master:latest
             registry-lynx.max-heidinger.de/harbor-master:${{ github.sha }}
 
-  #deploy:
-    #runs-on: ubuntu-latest
-    #needs: push
+  deploy:
+    runs-on: ubuntu-latest
+    needs: push
 
-    #steps:
+    steps:
       # https://github.com/distributhor/workflow-webhook
-      #- name: Deploy
-        #uses: distributhor/workflow-webhook@v3
-        #with:
-          #webhook_type: 'json-extended'
-          #webhook_url: ${{ secrets.WEBHOOK_URL }}
-          #webhook_secret: ${{ secrets.WEBHOOK_SECRET }}
+      - name: Deploy
+        uses: distributhor/workflow-webhook@v3
+        with:
+          webhook_type: "json-extended"
+          webhook_url: ${{ secrets.WEBHOOK_URL }}
+          webhook_secret: ${{ secrets.WEBHOOK_SECRET }}
