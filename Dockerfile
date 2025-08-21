@@ -9,7 +9,7 @@ COPY . .
 ENV CGO_ENABLED=0
 RUN go build -o HarborMaster ./cmd/HarborMaster
 
-FROM alpine:3.18
+FROM alpine:3.22
 
 WORKDIR /app
 COPY --from=builder /build/HarborMaster .
