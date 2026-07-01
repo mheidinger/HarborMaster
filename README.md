@@ -39,8 +39,6 @@ make clean
 ./HarborMaster -help
 
 Usage of ./HarborMaster:
-  -needed_header string
-        Header that needs to be set for requests to be allowed (default "X-TAC-User")
   -password_file string
         Password of the docker registry (default "/run/secrets/hm_registry_password")
   -port int
@@ -51,4 +49,4 @@ Usage of ./HarborMaster:
         Username of the docker registry (default "/run/secrets/hm_registry_username")
 ```
 
-The default needed header is set to work with [TraefikAccessControl](https://github.com/mheidinger/TraefikAccessControl)!
+HarborMaster does not perform any authentication itself — all routes are public. Put it behind a reverse proxy (e.g. Traefik, nginx) that handles authentication if you need access control.

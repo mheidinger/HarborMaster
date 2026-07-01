@@ -16,14 +16,12 @@ const (
 var errorInfo = "Failed to get info from registry"
 
 type Server struct {
-	Router       *gin.Engine
-	neededHeader string
+	Router *gin.Engine
 }
 
-func NewServer(neededHeader string) *Server {
+func NewServer() *Server {
 	s := &Server{
-		Router:       gin.New(),
-		neededHeader: neededHeader,
+		Router: gin.New(),
 	}
 	s.parseTemplates()
 	s.buildRoutes()
@@ -32,9 +30,6 @@ func NewServer(neededHeader string) *Server {
 
 func (s *Server) buildRoutes() {
 	s.Router.Use(ginlogrus.Logger(log.New()), gin.Recovery())
-	if s.neededHeader != "" {
-		s.Router.Use(NeededHeaderMiddleware(s.neededHeader))
-	}
 
 	s.buildUIRoutes()
 	s.buildAPIRoutes()

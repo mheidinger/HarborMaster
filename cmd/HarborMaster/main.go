@@ -43,12 +43,10 @@ func getSecretValue(valueEnv, fileEnv string) *string {
 func main() {
 	// Defaults
 	defaultURL := "localhost:8080"
-	defaultHeader := "X-TAC-User"
 	defaultPort := 4181
 
 	// Read config from env or fallback
 	url := getEnvOrDefault("REGISTRY_URL", defaultURL)
-	neededHeader := getEnvOrDefault("NEEDED_HEADER", defaultHeader)
 	portStr := getEnvOrDefault("PORT", strconv.Itoa(defaultPort))
 
 	// Username logic
@@ -70,7 +68,7 @@ func main() {
 		port = defaultPort
 	}
 
-	srv := server.NewServer(neededHeader)
+	srv := server.NewServer()
 
 	_, err = managers.CreateRegistryManager(url, *username, *password)
 	if err != nil {

@@ -17,7 +17,6 @@ func (s *Server) parseTemplates() {
 	r := multitemplate.NewRenderer()
 	r.AddFromFilesFuncs("dashboard", funcMap, "templates/base.html", "templates/dashboard.html")
 	r.AddFromFiles("notfound", "templates/base.html", "templates/notfound.html")
-	r.AddFromFiles("unauthorized", "templates/base.html", "templates/unauthorized.html")
 	s.Router.HTMLRender = r
 }
 
